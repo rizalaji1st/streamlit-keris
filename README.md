@@ -58,8 +58,9 @@ Pengguna macOS/Linux mengaktifkan virtualenv dengan `source .venv/bin/activate`.
 
 1. Push repositori ini ke GitHub (`best.pt` ikut ter-commit, ±20 MB).
 2. Buat app baru di [share.streamlit.io](https://share.streamlit.io), arahkan ke `app.py`.
-3. `requirements.txt` dan `packages.txt` sudah disiapkan — `packages.txt` memasang
-   dependensi sistem yang dibutuhkan OpenCV.
+3. `requirements.txt` sudah menyertakan PyTorch versi CPU (`--extra-index-url`
+   ke indeks CPU PyTorch) dan `opencv-python-headless`, sehingga tidak perlu
+   dependensi sistem tambahan.
 
 ## Struktur proyek
 
@@ -67,8 +68,7 @@ Pengguna macOS/Linux mengaktifkan virtualenv dengan `source .venv/bin/activate`.
 streamlit-keris/
 ├── app.py             # seluruh aplikasi Streamlit
 ├── best.pt            # bobot YOLO11s-seg terlatih
-├── requirements.txt   # dependensi Python
-├── packages.txt       # dependensi sistem untuk Streamlit Cloud
+├── requirements.txt   # dependensi Python (PyTorch CPU)
 └── README.md
 ```
 
