@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+
+# Ultralytics
+runs/
+*.onnx
+*.engine
+yolo11n.pt
+yolo11s.pt
+yolo11s-seg.pt
+
+# Streamlit
+.streamlit/secrets.toml
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
