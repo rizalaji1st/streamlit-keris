@@ -226,7 +226,7 @@ def render_result(name: str, image: Image.Image, detections: list[dict], setting
             "Tidak ada objek terdeteksi. Coba turunkan **Confidence threshold** di sidebar "
             "atau gunakan foto keris yang lebih jelas dan tidak terlalu jauh."
         )
-        st.image(image, caption=name, use_container_width=True)
+        st.image(image, caption=name, width="stretch")
         return
 
     top = detections[0]
@@ -250,8 +250,8 @@ def render_result(name: str, image: Image.Image, detections: list[dict], setting
             show_labels=settings["show_labels"],
         )
         left, right = st.columns(2)
-        left.image(image, caption="Foto asli", use_container_width=True)
-        right.image(annotated, caption="Hasil segmentasi", use_container_width=True)
+        left.image(image, caption="Foto asli", width="stretch")
+        right.image(annotated, caption="Hasil segmentasi", width="stretch")
         st.download_button(
             "⬇️ Unduh gambar hasil segmentasi",
             data=to_png_bytes(annotated),
@@ -272,7 +272,7 @@ def render_result(name: str, image: Image.Image, detections: list[dict], setting
     with tab_cut:
         st.caption("Piksel di luar mask dibuat transparan (PNG).")
         cut = cutout(image, detections, feather=settings["feather"])
-        st.image(cut, caption="Keris tanpa latar", use_container_width=True)
+        st.image(cut, caption="Keris tanpa latar", width="stretch")
         st.download_button(
             "⬇️ Unduh PNG transparan",
             data=to_png_bytes(cut),
@@ -293,7 +293,7 @@ def render_result(name: str, image: Image.Image, detections: list[dict], setting
                 }
                 for d in detections
             ],
-            use_container_width=True,
+            width="stretch",
             hide_index=True,
         )
         st.download_button(
